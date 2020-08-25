@@ -1,5 +1,6 @@
 built/*
 dist/*
+out/*
 coverage/**
 css/*
 Definitions/**/*

@@ -1,3 +1,5 @@
+export const overridePath = "/config.json";
+
 export enum Platform {
   Portal = "Portal",
   Hosted = "Hosted",
@@ -70,7 +72,7 @@ if (process.env.NODE_ENV === "development") {
 
 export async function initializeConfiguration(): Promise<ConfigContext> {
   try {
-    const response = await fetch("./config.json");
+    const response = await fetch("." + overridePath);
     if (response.status === 200) {
       try {
         const externalConfig = await response.json();
@@ -89,6 +91,7 @@ export async function initializeConfiguration(): Promise<ConfigContext> {
   } catch (error) {
     console.log("No configuration file found using defaults");
   }
+
   return configContext;
 }
 
